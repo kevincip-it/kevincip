@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial Analysis Case Study - Kevin Christensen</title>
+    
+    <!-- Google Fonts: Playfair Display (Elegant Headings) & Inter (Clean Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS with Typography Plugin -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0f172a',    // Deep slate/navy
+                            blue: '#1e3a8a',    // Professional blue
+                            light: '#f8fafc',   // Soft gray/white
+                            gray: '#64748b',    // Muted text
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #334155;
+        }
+        
+        /* Reading progress bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #1e3a8a;
+            z-index: 100;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .meta-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-blue selection:text-white">
+
+    <!-- Reading Progress Bar -->
+    <div id="progress-bar"></div>
+
+    <nav class="fixed w-full z-50 top-0 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300" id="navbar">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Back Link -->
+                <a href="index.html" class="flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-brand-blue transition-colors">
+                    <i class="fas fa-arrow-left"></i> Back to Portfolio
+                </a>
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-serif text-xl font-bold text-brand-navy tracking-tight">
+                        Kevin<span class="text-brand-blue">.</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-20 bg-brand-light relative overflow-hidden">
+        <!-- Subtle background pattern -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#0f172a 1px, transparent 1px); background-size: 32px 32px;"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-brand-blue text-xs font-semibold tracking-wide uppercase mb-6">
+                Case Study
+            </div>
+            
+            <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-8 leading-tight">
+                Analisis Kepuasan Warga Terhadap Ruang Terbuka Hijau dan Pengelolaan Sampah di Samarinda
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-12">
+                Memetakan dan menganalisis persepsi publik untuk mendukung perencanaan tata kota yang lebih baik berbasis data spasial dan analitik.
+            </p>
+        </div>
+    </header>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20 mb-16">
+        <div class="meta-card rounded-2xl shadow-xl p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">My Role</h4>
+                <p class="font-medium text-brand-navy">Data Analyst & Spatial Researcher</p>
+            </div>
+            <div class="md:border-l border-slate-200 md:pl-8">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Timeline</h4>
+                <p class="font-medium text-brand-navy">2023 - 2024</p>
+            </div>
+            <div class="md:border-l border-slate-200 md:pl-8">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Tools & Tech</h4>
+                <div class="flex flex-wrap gap-2 mt-1">
+                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded">QGIS</span>
+                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded">SQL</span>
+                    <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded">Machine Learning</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Typography classes for perfect reading experience -->
+        <article class="prose prose-slate prose-lg md:prose-xl prose-headings:font-serif prose-headings:text-brand-navy prose-a:text-brand-blue hover:prose-a:text-brand-navy prose-img:rounded-xl">
+            
+            <h2>Project Overview</h2>
+            <p>
+                Ruang Terbuka Hijau (RTH) dan sistem pengelolaan sampah yang efektif adalah tulang punggung dari kota yang berkelanjutan. Di Samarinda, seiring dengan pertumbuhan penduduk dan urbanisasi, kebutuhan akan fasilitas publik yang memadai menjadi sangat mendesak. Proyek ini bertujuan untuk menganalisis dan memetakan kepuasan warga terhadap fasilitas RTH serta layanan pengelolaan sampah di berbagai kecamatan di Samarinda.
+            </p>
+
+            <h2>The Challenge</h2>
+            <p>
+                Pemerintah dan perencana kota sering kali memiliki keterbatasan dalam memahami sentimen warga di tingkat mikro (per wilayah). Tantangan utama dalam proyek ini adalah:
+            </p>
+            <ul>
+                <li>Mengumpulkan data survei kepuasan yang representatif dari berbagai demografi warga.</li>
+                <li>Menerjemahkan data tabular yang kompleks ke dalam wawasan geospasial yang mudah dipahami.</li>
+                <li>Menemukan pola atau korelasi antara lokasi geografis (seperti kepadatan penduduk atau jarak ke fasilitas) dengan tingkat kepuasan warga.</li>
+            </ul>
+
+            <figure>
+                <img src="https://placehold.co/1200x700/e2e8f0/1e3a8a?text=QGIS+Spatial+Mapping+Visualization" alt="QGIS Spatial Mapping" class="w-full shadow-lg border border-slate-100">
+                <figcaption class="text-center text-sm text-slate-500 mt-3">Peta persebaran tingkat kepuasan warga menggunakan QGIS.</figcaption>
+            </figure>
+
+            <h2>Technical Approach & Methodology</h2>
+            <p>
+                Untuk menyelesaikan tantangan tersebut, saya menggunakan pendekatan hibrida antara analisis spasial dan pengelolaan basis data relasional:
+            </p>
+            <ol>
+                <li><strong>Data Collection & Cleansing:</strong> Mengumpulkan data survei primer dan menyimpannya dalam basis data <strong>SQL</strong> terpusat. Proses <em>cleansing</em> dilakukan untuk menghapus anomali data.</li>
+                <li><strong>Spatial Mapping (QGIS):</strong> Data yang telah bersih kemudian diimpor ke dalam <strong>QGIS</strong>. Saya melakukan <em>geocoding</em> pada titik-titik responden dan memetakan infrastruktur RTH serta Tempat Pembuangan Sementara (TPS) yang ada.</li>
+                <li><strong>Data Modeling:</strong> Menerapkan algoritma dasar <strong>Machine Learning</strong> (seperti regresi linier dan clustering) menggunakan Python untuk memprediksi area mana yang membutuhkan intervensi paling mendesak berdasarkan tren populasi dan skor kepuasan saat ini.</li>
+            </ol>
+
+            <h2>Impact & Results</h2>
+            <p>
+                Hasil analisis ini tidak hanya berupa angka, tetapi visualisasi peta yang interaktif. Temuan utama menunjukkan adanya kesenjangan yang signifikan dalam aksesibilitas fasilitas pengelolaan sampah di area pinggiran kota dibandingkan dengan pusat kota.
+            </p>
+            <p>
+                Laporan dari proyek ini memberikan landasan berbasis data (<em>data-driven foundation</em>) yang berharga bagi pihak-pihak terkait untuk memprioritaskan anggaran pembangunan dan perbaikan tata kota di masa depan, menjadikan Samarinda kota yang lebih layak huni (<em>livable city</em>).
+            </p>
+
+        </article>
+
+        <!-- Tags -->
+        <div class="mt-16 pt-8 border-t border-slate-100 flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-slate-50 border border-slate-200 text-slate-600 text-sm font-medium rounded-full">Spatial Analysis</span>
+            <span class="px-3 py-1 bg-slate-50 border border-slate-200 text-slate-600 text-sm font-medium rounded-full">Data Visualization</span>
+            <span class="px-3 py-1 bg-slate-50 border border-slate-200 text-slate-600 text-sm font-medium rounded-full">Urban Planning</span>
+        </div>
+    </main>
+
+    <footer class="bg-brand-navy py-12 border-t border-slate-800 mt-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <a href="index.html" class="font-serif text-2xl font-bold text-white tracking-tight">
+                    Kevin<span class="text-brand-blue">.</span>
+                </a>
+                <p class="text-slate-400 text-sm mt-2">&copy; 2026 Kevin Christensen Immanuel P. All rights reserved.</p>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-brand-blue hover:text-white transition-all">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-brand-blue hover:text-white transition-all">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reading progress bar and Navbar styling on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            const progressBar = document.getElementById('progress-bar');
+            
+            // Navbar shadow
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-sm', 'bg-white/95');
+                nav.classList.remove('bg-white/90');
+            } else {
+                nav.classList.remove('shadow-sm', 'bg-white/95');
+                nav.classList.add('bg-white/90');
+            }
+
+            // Reading progress calculation
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
+        });
+    </script>
+</body>
+</html>
